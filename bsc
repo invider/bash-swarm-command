@@ -1,3 +1,40 @@
 #!/usr/bin/env bash
 
+BELT=${BELT:-"belt.bsc"}
+
 echo 'Bash Swarm Command'
+echo $BELT
+
+dumpAsteroid() {
+    asteroid=$1
+    echo 'dumping asteroid'
+    echo "    > ${asteroid[*]}"
+}
+
+dumpDrone() {
+    drone=$1
+    echo 'dumping drone'
+    echo "    > ${drone[*]}"
+}
+
+parse() {
+    while IFS= read -r line
+    do
+        echo "$line"
+
+        if [[ $line == "%"* ]]; then
+            echo "config!"
+        elif [[ $line == ":"* ]]; then
+            asteroid=($line)
+            dumpAsteroid $asteroid
+            #echo "asteroid! ${asteroid[1]}"
+        elif [[ $line == "."* ]]; then
+            drone=($line)
+            dumpDrone $drone
+            #echo "drone! ${drone[1]}"
+        fi
+    done < $BELT
+}
+
+parse
+

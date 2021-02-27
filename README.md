@@ -29,7 +29,7 @@ waypoints: asteroid1 -> asteroid2 -> asteroid 3 -> (back to asteroid1)
 ### asteroid types
 * mineral (mine)
 * comet   (fuel production)
-* hollow  (resource stockpile)
+* hollow  (resource stockpile or drone production)
 
 ### rules
 * only one type of facility can exist on an asteroid
