@@ -1,0 +1,12 @@
+# global settings
+% orbital speed: 20
+
+# asteroid spec - name - ring coord - type - facility team - stock
+# stock can be only of one type depending on type of the system
+* K28 0  mineral 0 0 
+* K29 11 mineral 1 101
+
+# drone - name - team - rind coord - fuel - type of cargo (0 - no cargo) - mission
+. drone2 1 1 99 2 !move K29 !pick K28
+. drone3 1 1 99 0 !move K29 !pick K28
+

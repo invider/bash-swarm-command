@@ -26,6 +26,11 @@ waypoints: asteroid1 -> asteroid2 -> asteroid 3 -> (back to asteroid1)
 * pick at
 * drop at
 
+### asteroid types
+* mineral (mine)
+* comet   (fuel production)
+* hollow  (resource stockpile)
+
 ### rules
 * only one type of facility can exist on an asteroid
 * ships can transport only one unit of cargo
