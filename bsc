@@ -2,25 +2,39 @@
 
 BELT=${BELT:-"belt.bsc"}
 
-echo 'Bash Swarm Command'
+echo 'Bash Swarm Command Status'
 echo $BELT
 
 dumpAsteroid() {
     asteroid=$1
-    echo 'dumping asteroid'
-    echo "    > ${asteroid[*]}"
+    #echo 'dumping asteroid'
+    #echo "    > ${asteroid[*]}"
+    printf "* [${asteroid[1]}]" # name
+    printf " ${asteroid[4]}"    # team asteroid
+    printf " ${asteroid[3]}"    # asteroid type [mineral | icy | stone]
+    printf " asteroid"
+    printf " @${asteroid[2]}"   # coordinates
+    printf " : ${asteroid[5]}"  # resource stockpile
+    printf "\n"
 }
 
 dumpDrone() {
     drone=$1
     echo 'dumping drone'
     echo "    > ${drone[*]}"
+    printf ". [${drone[1]}]"    # name
+    printf " ${drone[2]} drone" # team
+    printf " @${drone[3]}"      # coordinates
+    printf " fuel:${drone[4]%}" # fuel level
+    printf " cargo:${drone[5]}" # cargo container
+    printf " : ${drone[6]}"     # next command
+    printf "\n"
 }
 
 parse() {
     while IFS= read -r line
     do
-        echo "$line"
+        #echo "$line"
 
         if [[ $line == "%"* ]]; then
             echo "config!"
@@ -36,5 +50,7 @@ parse() {
     done < $BELT
 }
 
+
 parse
+
 

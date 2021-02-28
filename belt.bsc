@@ -1,12 +1,14 @@
 # global settings
-% orbital speed: 20
+% teams: red, blue
+% turn: 20 red
+% rspeed: 20
 
 # asteroid spec - name - ring coord - type - facility team - stock
 # stock can be only of one type depending on type of the system
-: K28 0  mineral 0 0 
-: K29 11 mineral 1 101
+: K28 0  mineral neutral 0 
+: K29 11 mineral red 101
 
 # drone - name - team - rind coord - fuel - type of cargo (0 - no cargo) - mission
-. drone2 1 1 99 2 !move K29 !pick K28
-. drone3 1 1 99 0 !move K29 !pick K28
+. RD2 red 1 100 empty !move K29 !pick K28
+. BD3 blue 1 50 minerals !move K29 !pick K28
 
